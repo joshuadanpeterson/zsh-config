@@ -4,17 +4,17 @@ export COLORTERM=nord
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Core settings
-source ~/.config/dotfiles/core.zsh
+source ~/.config/dotfiles/config/core.zsh
 
 # Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 # Path settings
-source ~/.config/dotfiles/path.zsh
+source ~/.config/dotfiles/config/path.zsh
 
 # Aliases
-source ~/.config/dotfiles/aliases.zsh
+source ~/.config/dotfiles/config/aliases.zsh
 
 # Source private environment variables
 if [ -f ~/.zshenv_private ]; then
@@ -22,10 +22,10 @@ if [ -f ~/.zshenv_private ]; then
 fi
 
 # Asynchronous or deferred loading
-source ~/.config/dotfiles/async.zsh
+source ~/.config/dotfiles/config/async.zsh
 
 # Source lazy load configurations
-source ~/.config/dotfiles/lazyload.zsh
+source ~/.config/dotfiles/config/lazyload.zsh
 
 #Pyenv PATH setup
 export PYENV_ROOT="$HOME/.pyenv"
