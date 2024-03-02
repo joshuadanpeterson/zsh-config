@@ -38,12 +38,16 @@ zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier
 
 ## Measure Zsh startup time using Python
 ZSH_START_TIME=$(python -c 'import time; print(time.time())')
+ZSH_STARTUP_TIME_SHOWN=false
 
 function zsh_startup_time() {
     precmd() {  # precmd is executed before each prompt
-        local end_time=$(python -c 'import time; print(time.time())')
-        local startup_time=$(python -c "import time; print(${end_time} - ${ZSH_START_TIME})")
-        echo "Startup time: ${startup_time} seconds"
+        if ! $ZSH_STARTUP_TIME_SHOWN; then
+            local end_time=$(python -c 'import time; print(time.time())')
+            local startup_time=$(python -c "import time; print(${end_time} - ${ZSH_START_TIME})")
+            echo "Startup time: ${startup_time} seconds"
+            ZSH_STARTUP_TIME_SHOWN=true
+        fi
     }
 }
 
@@ -70,3 +74,6 @@ function fzf_nvim() {
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

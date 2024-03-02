@@ -31,6 +31,7 @@ export EDITOR="$VISUAL"
 
 # Enable VIM mode
 bindkey -v
+set -o vi
 bindkey ^R history-incremental-search-backward
 bindkey ^S history-incremental-search-forward
 
