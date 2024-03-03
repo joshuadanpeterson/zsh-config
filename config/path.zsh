@@ -12,7 +12,7 @@ if [ -f '/Users/joshpeterson/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jo
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/joshpeterson/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/joshpeterson/google-cloud-sdk/completion.zsh.inc'; fi
 
-# fzf 
+# fzf
 export FZF_BASE=/path/to/fzf/install/dir
 
 # hub
@@ -43,3 +43,6 @@ export PATH="/usr/local/bin:$PATH"
 if [ -f ~/.zprofile ]; then
   source ~/.zprofile
 fi
+
+# NPM & Node Modules Path
+export PATH="/usr/local/Cellar/node/21.6.2_1/bin:$PATH"

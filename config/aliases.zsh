@@ -36,6 +36,9 @@ alias tmxdp='tmux display-message "Window: #I Pane: #{pane_index} Date: $(date)"
 alias nvimc='nvim "$HOME/.config/nvim/init.lua"'
 alias nvimd='cd "$HOME/.config/nvim"'
 
+# Lazygit
+alias lg='lazygit'
+
 # ranger config
 alias rnd='cd "$HOME/.config/ranger"'
 alias rnc='nvim "$HOME/.config/ranger/rc.conf"'
