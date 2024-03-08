@@ -16,6 +16,9 @@ source ~/.config/dotfiles/config/path.zsh
 # Aliases
 source ~/.config/dotfiles/config/aliases.zsh
 
+# Zoxide configurations
+source ~/.config/dotfiles/config/zoxide.zsh
+
 # Source private environment variables
 if [ -f ~/.zshenv_private ]; then
     source ~/.zshenv_private
