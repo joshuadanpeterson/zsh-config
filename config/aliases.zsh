@@ -39,6 +39,11 @@ alias nvimd='cd "$HOME/.config/nvim"'
 # Lazygit
 alias lg='lazygit'
 
+alias ln='lazynpm'
+
+# Lazydocker
+alias ld='lazydocker'
+
 # ranger config
 alias rnd='cd "$HOME/.config/ranger"'
 alias rnc='nvim "$HOME/.config/ranger/rc.conf"'

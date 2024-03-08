@@ -1,0 +1,7 @@
+# CLI Tools
+
+- htop: resource management
+- bpytop: resource management
+- tldr: human readable man pages
+- jq: JSON parser
+- zioxide: intelligent cd
