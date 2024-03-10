@@ -69,6 +69,9 @@ export YSU_MESSAGE_POSITION="after"
 # Disable console I/O
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
+# Open Man Pages in Neovim
+export MANPAGER='nvim +Man!'
+
 # Open files in Neovim using `fzf` with preview window and toggle preview
 function fzf_nvim() {
     local file
