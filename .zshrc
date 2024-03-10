@@ -75,6 +75,13 @@ function fzf_nvim() {
     file=$(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' --preview-window=right:50% --bind '?:toggle-preview') && nvim "$file"
 }
 
+# Open files in Neovim using `fzf` with fd, preview window and toggle preview
+function fzf_ls_nvim() {
+    local file
+    file=$(fd -H --type f --exclude .git . \
+        | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' \
+              --preview-window=right:50% --bind '?:toggle-preview') && [ -n "$file" ] && nvim "$file"
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
