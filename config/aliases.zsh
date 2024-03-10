@@ -28,6 +28,7 @@ alias slzyld='source "$HOME/.config/dotfiles/lazyload.zsh"'
 
 # ColorLS to LS
 alias ls='colorls'
+alias lsfz='fzf_ls_nvim'
 
 # Display Window #, Pane # , & Date in tmx Statusbar
 alias tmxdp='tmux display-message "Window: #I Pane: #{pane_index} Date: $(date)"'
