@@ -3,6 +3,8 @@
 # Change Directory to NucampFolder NodeJS
 alias nc='cd "$HOME/Dropbox/programming/education/NucampFolder/WebDev/5-NodeJS-Express-MongoDB/" && ls'
 
+# Change Directory to Home Directory
+alias home='cd ~'
 # .config/dotfiles
 alias dot='cd "$HOME/.config/dotfiles"'
 
