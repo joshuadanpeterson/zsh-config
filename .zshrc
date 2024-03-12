@@ -30,11 +30,6 @@ source ~/.config/dotfiles/config/async.zsh
 # Source lazy load configurations
 source ~/.config/dotfiles/config/lazyload.zsh
 
-#Pyenv PATH setup
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
 # Source functions configurations
 source ~/.config/dotfiles/config/functions.zsh
 
