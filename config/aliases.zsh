@@ -27,7 +27,7 @@ alias lzyld='nvim "$HOME/.config/dotfiles/lazyload.zsh"'
 alias slzyld='source "$HOME/.config/dotfiles/lazyload.zsh"'
 
 # ColorLS to LS
-alias ls='colorls -a'
+alias ls='colorls -ago'
 alias lsfz='fzf_ls_nvim'
 
 # Display Window #, Pane # , & Date in tmx Statusbar
