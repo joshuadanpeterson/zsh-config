@@ -83,7 +83,9 @@ function fzf_ls_nvim() {
               --preview-window=right:50% --bind '?:toggle-preview') && [ -n "$file" ] && nvim "$file"
 }
 
+# Source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Source iterm2 integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
