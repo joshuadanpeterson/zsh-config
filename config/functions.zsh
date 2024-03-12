@@ -34,7 +34,7 @@ function fzf_ls_nvim() {
 
 # Zoxide with icons reveal all
 function zi() {
-    cd "$(zoxide query -i $@)" && lsd -a --group-dirs=first
+    cd "$(zoxide query -i $@)" && colorls -ago
 }
 
 # colorls
