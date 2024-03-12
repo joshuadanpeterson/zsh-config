@@ -5,6 +5,7 @@ alias nc='cd "$HOME/Dropbox/programming/education/NucampFolder/WebDev/5-NodeJS-E
 
 # Change Directory to Home Directory
 alias home='cd ~'
+
 # .config/dotfiles
 alias dot='cd "$HOME/.config/dotfiles"'
 
@@ -43,7 +44,7 @@ alias nvimd='cd "$HOME/.config/nvim"'
 # Lazygit
 alias lg='lazygit'
 
-alias ln='lazynpm'
+alias lnpm='lazynpm'
 
 # Lazydocker
 alias ld='lazydocker'
