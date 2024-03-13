@@ -44,3 +44,8 @@ else
   echo "colorls tab completion not found"
 fi
 
+# Keep prompt at bottom of iTerm2 terminal after clearing
+function cl {
+  clear && tput cup 9999 0
+}
+
