@@ -53,7 +53,6 @@ export MANPAGER='nvim +Man!'
 # Source iterm2 integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-
 [[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
 
 # CodeWhisperer post block. Keep at the bottom of this file.
