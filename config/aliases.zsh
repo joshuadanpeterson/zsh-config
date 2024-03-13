@@ -35,6 +35,9 @@ alias ln='fzf_ls_nvim'
 alias lf='fzf_nvim'
 alias lc='ls | fzf | pbcopy'
 
+# List aliases with fzf
+alias af='alias | fzf'
+
 # Display Window #, Pane # , & Date in tmx Statusbar
 alias tmxdp='tmux display-message "Window: #I Pane: #{pane_index} Date: $(date)"'
 
