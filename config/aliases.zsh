@@ -37,6 +37,8 @@ alias lc='ls | fzf | pbcopy'
 
 # List aliases with fzf
 alias af='alias | fzf'
+# List aliases and copy result to clipboard
+alias al="bat -n ~/.config/dotfiles/config/aliases.zsh | fzf | awk -F 'alias |=' '{print $2}' | pbcopy"
 
 # Display Window #, Pane # , & Date in tmx Statusbar
 alias tmxdp='tmux display-message "Window: #I Pane: #{pane_index} Date: $(date)"'
