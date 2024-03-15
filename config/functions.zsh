@@ -48,3 +48,14 @@ fi
 function cl {
   clear && tput cup 9999 0
 }
+
+# Count usage history of aliases
+function count_alias_usage() {
+  echo -e "Alias\tCount"
+  alias | cut -d'=' -f1 | cut -d' ' -f2 | while read alias_command; do
+      if ! [[ $alias_command =~ ^[0-9]+$ || $alias_command =~ ^[/.]+$ || $alias_command == "-" ]] ; then
+          count=$(history | grep -w "$alias_command" | wc -l);
+          if [ $count -ne 0 ]; then echo -e "$alias_command\t$count"; fi;
+      fi;
+  done | sort -t$'\t' -k2 -nr | column -t
+}
