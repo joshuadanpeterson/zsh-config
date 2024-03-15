@@ -39,6 +39,9 @@ unset GEM_PATH
 # Update language paths
 export PATH="/usr/local/bin:$PATH"
 
+# Update Alacritty path
+export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
+
 # Integrate .zprofile
 if [ -f ~/.zprofile ]; then
   source ~/.zprofile
