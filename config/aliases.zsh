@@ -41,7 +41,7 @@ alias lc='ls | fzf | pbcopy'
 # List aliases with fzf
 alias af='alias | fzf'
 # List aliases and copy result to clipboard
-alias al="bat -n ~/.config/dotfiles/config/aliases.zsh | fzf | awk -F 'alias |=' '{print $2}' | pbcopy"
+alias al="alias | fzf | cut -d'=' -f1 | awk '{print $2}' | pbcopy | pbpaste"
 
 # Codewhisperer AI
 alias ca='cw ai'
