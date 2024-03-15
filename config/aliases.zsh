@@ -14,6 +14,9 @@ alias zshrc='nvim "$HOME/.config/dotfiles/.zshrc"'
 alias sz='source "$HOME/.config/dotfiles/.zshrc"'
 alias aliases='nvim "$HOME/.config/dotfiles/config/aliases.zsh"'
 
+# Powerlevel10k
+alias sp='source $HOME/.config/p10k/.p10k.zsh'
+
 # Tmux
 alias tmxc='nvim "$HOME/.config/tmux/.tmux.conf"'
 alias tmxs='tmux source "$HOME/.config/tmux/.tmux.conf"'
