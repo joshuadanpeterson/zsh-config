@@ -11,7 +11,7 @@ alias dot='cd "$HOME/.config/dotfiles"'
 
 # zshrc
 alias zshrc='nvim "$HOME/.config/dotfiles/.zshrc"'
-alias szshrc='source "$HOME/.config/dotfiles/.zshrc"'
+alias sz='source "$HOME/.config/dotfiles/.zshrc"'
 alias aliases='nvim "$HOME/.config/dotfiles/config/aliases.zsh"'
 
 # Tmux
