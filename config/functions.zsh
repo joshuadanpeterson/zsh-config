@@ -48,4 +48,3 @@ fi
 function cl {
   clear && tput cup 9999 0
 }
-
