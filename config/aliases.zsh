@@ -42,6 +42,8 @@ alias lc='ls | fzf | pbcopy'
 alias af='alias | fzf'
 # List aliases and copy result to clipboard
 alias al="alias | fzf | cut -d'=' -f1 | awk '{print $2}' | pbcopy | pbpaste"
+# Count alias usage
+alias cu='count_alias_usage | fzf --reverse'
 
 # Codewhisperer AI
 alias ca='cw ai'
