@@ -34,7 +34,7 @@ alias slzyld='source "$HOME/.config/dotfiles/lazyload.zsh"'
 
 # ColorLS to LS
 alias ls='colorls -ago'
-alias ln='fzf_ls_nvim'
+alias lz='fzf_ls_nvim'
 alias lf='fzf_nvim'
 alias lc='ls | fzf | pbcopy'
 
