@@ -52,6 +52,15 @@ export MANPAGER='nvim +Man!'
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
+# Set fzf colortheme
+# https://shorturl.at/msyU9
+export FZF_DEFAULT_OPTS="
+  --color=hl:#5f87af,hl+:#5fd7ff,info:#afaf87,marker:#87ff00 \
+  --color=prompt:#d7005f,spinner:#af5fff,pointer:#af5fff,header:#87afaf \
+  --border=rounded --border-label='' --preview-window='border-rounded' --prompt='> ' \
+  --marker='>' --pointer='◆' --separator='─' --scrollbar='│'
+"
+
 # Source iterm2 integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
