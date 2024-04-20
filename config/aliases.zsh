@@ -32,11 +32,11 @@ alias tmxks='tmux kill-server'
 alias lzyld='nvim "$HOME/.config/dotfiles/lazyload.zsh"'
 alias slzyld='source "$HOME/.config/dotfiles/lazyload.zsh"'
 
-# ColorLS to LS
-alias ls='colorls -ago'
+# eza and ColorLS to LS
+alias ls='eza --color=always -l --git --git-repos  --icons=always  --no-permissions --no-user -a -a --header'
 alias lz='fzf_ls_nvim'
 alias lf='fzf_nvim'
-alias lc='ls | fzf | pbcopy'
+alias lp='eza | fzf | pbcopy'
 
 # Set bat theme
 alias bat='bat --theme=GitHub --color=always'
