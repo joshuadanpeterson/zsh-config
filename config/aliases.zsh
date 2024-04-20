@@ -41,6 +41,9 @@ alias lc='ls | fzf | pbcopy'
 # Set bat theme
 alias bat='bat --theme=GitHub --color=always'
 
+# Set git blame config
+alias gb='git blame -n --show-stats --color-lines'
+
 # Add pwd to clipboard
 alias pwd='pwd | tee >(pbcopy)'
 
