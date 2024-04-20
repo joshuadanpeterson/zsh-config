@@ -40,6 +40,10 @@ alias lc='ls | fzf | pbcopy'
 
 # Set bat theme
 alias bat='bat --theme=GitHub --color=always'
+
+# Add pwd to clipboard
+alias pwd='pwd | tee >(pbcopy)'
+
 # List aliases with fzf
 alias af='alias | fzf'
 # List aliases and copy result to clipboard
