@@ -20,14 +20,14 @@ zsh_startup_time
 # Open files in Neovim using `fzf` with preview window and toggle preview
 function fzf_nvim() {
     local file
-    file=$(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' --preview-window=right:50% --bind '?:toggle-preview') && nvim "$file"
+    file=$(fzf --preview 'bat --theme=GitHub --style=numbers --color=always --line-range :500 {}' --preview-window=right:50% --bind '?:toggle-preview') && nvim "$file"
 }
 
 # Open files in Neovim using `fzf` with colorls, preview window and toggle preview
 function fzf_ls_nvim() {
     local file
     file=$(lsd -a -R | grep -v '.git' \
-        | fzf --preview 'bat --color=always --line-range :500 {} || echo {}' \
+        | fzf --preview 'bat --theme=GitHub --color=always --line-range :500 {} || echo {}' \
               --preview-window=down:3:wrap --bind='?:toggle-preview' \
         | awk '{print $NF}' ) && [ -n "$file" ] && nvim "$file"
 }
