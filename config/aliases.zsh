@@ -38,6 +38,8 @@ alias lz='fzf_ls_nvim'
 alias lf='fzf_nvim'
 alias lc='ls | fzf | pbcopy'
 
+# Set bat theme
+alias bat='bat --theme=GitHub --color=always'
 # List aliases with fzf
 alias af='alias | fzf'
 # List aliases and copy result to clipboard
