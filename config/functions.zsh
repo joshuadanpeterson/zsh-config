@@ -59,3 +59,19 @@ function count_alias_usage() {
       fi;
   done | sort -t$'\t' -k2 -nr | column -t
 }
+
+# --- Select tldr page with fzf and display --- #
+
+# Get the selected command from fzf
+fzf_tldr() {
+    # Get the selected command from fzf
+    local selected_command=$(tldr -a --color=always | fzf --ansi | awk '{print $1}')
+
+    # Check if a command was selected
+    if [ -n "$selected_command" ]; then
+        # Show the tldr page for the selected command
+        tldr $selected_command --color=always | tee >(pbcopy)
+    else
+        echo "No command selected."
+    fi
+}
