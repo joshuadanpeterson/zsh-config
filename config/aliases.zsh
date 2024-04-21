@@ -6,13 +6,13 @@ alias nc='cd "$HOME/Dropbox/programming/education/NucampFolder/WebDev/5-NodeJS-E
 # Change Directory to Home Directory
 alias home='cd ~'
 
-# .config/dotfiles
-alias dot='cd "$HOME/.config/dotfiles"'
+# .config/zsh-config
+alias dot='cd "$HOME/.config/zsh-config"'
 
 # zshrc
-alias zshrc='nvim "$HOME/.config/dotfiles/.zshrc"'
-alias sz='source "$HOME/.config/dotfiles/.zshrc"'
-alias aliases='nvim "$HOME/.config/dotfiles/config/aliases.zsh"'
+alias zshrc='nvim "$HOME/.config/zsh-config/.zshrc"'
+alias sz='source "$HOME/.config/zsh-config/.zshrc"'
+alias aliases='nvim "$HOME/.config/zsh-config/config/aliases.zsh"'
 
 # Powerlevel10k
 alias sp='source $HOME/.config/p10k/.p10k.zsh'
@@ -29,14 +29,17 @@ alias tmxn='tmux attach -t base || tmux new -s base'
 alias tmxks='tmux kill-server'
 
 # Lazy Load plugins
-alias lzyld='nvim "$HOME/.config/dotfiles/lazyload.zsh"'
-alias slzyld='source "$HOME/.config/dotfiles/lazyload.zsh"'
+alias lzyld='nvim "$HOME/.config/zsh-config/lazyload.zsh"'
+alias slzyld='source "$HOME/.config/zsh-config/lazyload.zsh"'
 
 # eza and ColorLS to LS
 alias ls='eza --color=always -l --git --git-repos  --icons=always  --no-permissions --no-user -a -a --header'
 alias lz='fzf_ls_nvim'
 alias lf='fzf_nvim'
 alias lp='eza | fzf | pbcopy'
+
+# Set fzf_tldr
+alias tf='fzf_tldr'
 
 # Set bat theme
 alias bat='bat --theme=GitHub --color=always'

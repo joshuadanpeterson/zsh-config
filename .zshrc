@@ -6,20 +6,20 @@ export COLORTERM=nord
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Core settings
-source ~/.config/dotfiles/config/core.zsh
+source ~/.config/zsh-config/config/core.zsh
 
 # Oh My Zsh
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 # Path settings
-source ~/.config/dotfiles/config/path.zsh
+source ~/.config/zsh-config/config/path.zsh
 
 # Aliases
-source ~/.config/dotfiles/config/aliases.zsh
+source ~/.config/zsh-config/config/aliases.zsh
 
 # Zoxide configurations
-source ~/.config/dotfiles/config/zoxide.zsh
+source ~/.config/zsh-config/config/zoxide.zsh
 
 # Source private environment variables
 if [ -f ~/.zshenv_private ]; then
@@ -27,13 +27,13 @@ if [ -f ~/.zshenv_private ]; then
 fi
 
 # Asynchronous or deferred loading
-source ~/.config/dotfiles/config/async.zsh
+source ~/.config/zsh-config/config/async.zsh
 
 # Source lazy load configurations
-source ~/.config/dotfiles/config/lazyload.zsh
+source ~/.config/zsh-config/config/lazyload.zsh
 
 # Source functions configurations
-source ~/.config/dotfiles/config/functions.zsh
+source ~/.config/zsh-config/config/functions.zsh
 
 # nvm
 zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier
@@ -64,7 +64,7 @@ export FZF_DEFAULT_OPTS="
 # Source iterm2 integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-[[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
+[[ -f "$HOME/fig-export/zsh-config/dotfile.zsh" ]] && builtin source "$HOME/fig-export/zsh-config/dotfile.zsh"
 
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
