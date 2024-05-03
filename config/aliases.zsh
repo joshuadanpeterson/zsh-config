@@ -44,8 +44,10 @@ alias tf='fzf_tldr'
 # Set bat theme
 alias bat='bat --theme=GitHub --color=always'
 
+# Git commands
 # Set git blame config
 alias gb='git blame -n --show-stats --color-lines'
+alias glgc='git log -1 --pretty=%B' # Get last git commit message
 
 # Add pwd to clipboard
 alias pwd='pwd | tee >(pbcopy)'
