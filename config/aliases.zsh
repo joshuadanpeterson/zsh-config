@@ -101,8 +101,8 @@ alias lnpm='lazynpm'
 # Lazydocker
 alias ld='lazydocker'
 
-# html2markdown
-alias hm='html2markdown'
+# html2text
+alias hm='html2text'
 
 ## <-- LeetCode -->
 # LeetCode
