@@ -84,6 +84,8 @@ alias bat='bat --theme=GitHub --color=always'
 # Set git blame config
 alias gb='git blame -n --show-stats --color-lines'
 alias glgc='git log -1 --pretty=%B' # Get last git commit message
+alias gac='gaa && gc -m' # beginning of git add and git commit
+alias gpom='gp origin main'
 
 ## <-- Tools -->
 # Add pwd to clipboard
