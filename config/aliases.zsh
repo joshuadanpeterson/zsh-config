@@ -21,22 +21,20 @@ alias nvimc='nvim "$HOME/.config/nvim/init.lua"'
 alias nvimd='cd "$HOME/.config/nvim"'
 
 ## <-- Change Directories -->
-# Change Directory to NucampFolder NodeJS
-alias nc='cd "$HOME/Dropbox/programming/education/NucampFolder/WebDev/5-NodeJS-Express-MongoDB/" && ls'
+# eza and ColorLS to LS
+alias ls='eza --color=always -l --git --git-repos  --icons=always  --no-permissions --no-user -a -a --header | lolcat'
+alias lz='fzf_ls_nvim'
+alias lf='fzf_nvim'
+alias lp='fd --hidden | fzf | pbcopy'
 
 # Change Directory to Home Directory
 alias home='cd ~'
 
-# eza and ColorLS to LS
-alias ls='eza --color=always -l --git --git-repos  --icons=always  --no-permissions --no-user -a -a --header'
-alias lz='fzf_ls_nvim'
-alias lf='fzf_nvim'
-alias lp='eza | fzf | pbcopy'
+# Change Directory to LeetCode directory
+alias lcd='cd "$HOME/Dropbox/programming/leetcode/" && ls'
 
-# ranger config
-alias rnd='cd "$HOME/.config/ranger"'
-alias rnc='nvim "$HOME/.config/ranger/rc.conf"'
-alias rn='ranger'
+# Change Directory to NucampFolder NodeJS
+alias nc='cd "$HOME/Dropbox/programming/education/NucampFolder/WebDev/5-NodeJS-Express-MongoDB/" && ls'
 
 # Obsidian Vaults
 alias obl='cd "$HOME/Dropbox/DropsyncFiles/Obsidian Vault/Blogging/" && nvim'
@@ -46,6 +44,11 @@ alias opo='cd "$HOME/Dropbox/DropsyncFiles/Obsidian Vault/Poetry/" && nvim'
 alias opr='cd "$HOME/Dropbox/DropsyncFiles/Obsidian Vault/Programming/" && nvim'
 alias otr='cd "$HOME/Dropbox/DropsyncFiles/Obsidian Vault/Temporal Rift/" && nvim'
 alias oud='cd "$HOME/Dropbox/DropsyncFiles/Obsidian Vault/Udemy/" && nvim'
+
+# ranger config
+alias rnd='cd "$HOME/.config/ranger"'
+alias rnc='nvim "$HOME/.config/ranger/rc.conf"'
+alias rn='ranger'
 
 # Zoxide
 alias z='zoxide'
@@ -83,9 +86,9 @@ alias bat='bat --theme=GitHub --color=always'
 ## <-- Git commands -->
 # Set git blame config
 alias gb='git blame -n --show-stats --color-lines'
-alias glgc='git log -1 --pretty=%B' # Get last git commit message
+alias glgc='git log -1 --pretty=%B | lolcat' # Get last git commit message
 alias gac='gaa && gc -m' # beginning of git add and git commit
-alias gpom='gp origin main'
+alias gpom='gp -u origin main'
 
 ## <-- Tools -->
 # Add pwd to clipboard
@@ -109,4 +112,3 @@ alias hm='html2text'
 ## <-- LeetCode -->
 # LeetCode
 alias lc='nvim leetcode.nvim'
-
