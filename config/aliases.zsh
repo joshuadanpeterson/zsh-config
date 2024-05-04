@@ -87,6 +87,9 @@ alias tf='fzf_tldr'
 # List tldr pages
 alias tl='tldr -l | fzf --color=16 | pbcopy'
 
+# List man pages
+alias ml='fzf_man | pbcopy'
+
 ## <-- Git commands -->
 # Set git blame config
 alias gb='git blame -n --show-stats --color-lines'

@@ -75,3 +75,12 @@ fzf_tldr() {
         echo "No command selected."
     fi
 }
+
+# --- Select man page from fzf and display --- #
+
+# Search for man pages and display in fzf preview window
+fzf_man() {
+    local selected_command=$(man -k . | fzf --color=16 | awk -F '(' '{print $1}' | tr -d '[:space:]')
+    echo "man $selected_command"
+    echo $selected_command | pbcopy
+}
