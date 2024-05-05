@@ -49,10 +49,12 @@ fi
 
 # NPM & Node Modules Path
 export PATH="/usr/local/Cellar/node/21.6.2_1/bin:$PATH"
+export PATH="$PATH:$(npm root -g)"
+export PATH="/usr/local/Cellar/node/22.1.0/bin:$PATH"
+
 
 #Pyenv PATH setup
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-
