@@ -119,3 +119,6 @@ alias hm='html2text'
 ## <-- LeetCode -->
 # LeetCode
 alias lc='nvim leetcode.nvim'
+
+# Aliasing Python
+alias python='python3'
