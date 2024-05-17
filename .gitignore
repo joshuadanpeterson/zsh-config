@@ -1,3 +1,4 @@
 # Add to .gitignore
 .zshenv_private
+.vscode/
 
