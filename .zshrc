@@ -13,7 +13,7 @@ export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 # Path settings
-source ~/.config/zsh-config/config/path.zsh
+source ~/.config/zsh-config/config/paths.zsh
 
 # Aliases
 source ~/.config/zsh-config/config/aliases.zsh
