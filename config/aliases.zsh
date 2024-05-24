@@ -90,6 +90,9 @@ alias tl='tldr -l | fzf --color=16 | pbcopy'
 # List man pages
 alias ml='fzf_man | pbcopy'
 
+# Search command history
+alias hist='fzfhist' # with fzf and execute
+alias hg='history | grep '
 ## <-- Git commands -->
 # Set git blame config
 alias gb='git blame -n --show-stats --color-lines'
