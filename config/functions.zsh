@@ -87,3 +87,8 @@ fzf_man() {
     echo "man $selected_command"
     echo $selected_command | pbcopy
 }
+
+# Search command history with fzf and execute
+fzfhist() {
+  eval $(history | fzf | awk '{$1=""; print $0}')
+}
