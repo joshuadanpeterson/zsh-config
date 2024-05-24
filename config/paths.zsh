@@ -71,6 +71,7 @@ unset GEM_PATH
 
 # Update language paths
 export PATH="/usr/local/bin:$PATH"
+export PATH="$PATH:/usr/local/bin"
 
 # Update Alacritty path
 export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
@@ -81,8 +82,11 @@ if [ -f ~/.zprofile ]; then
 fi
 
 # NPM & Node Modules Path
+export PATH="$PATH:/System/Volumes/Data/Users/joshpeterson/.nvm/versions/node/v18.12.1/bin"
 export PATH="$PATH:/usr/local/Cellar/node/21.6.2_1/bin"
 export PATH="$PATH:/usr/local/Cellar/node/22.1.0/bin"
+export PATH="/usr/local/Cellar/node/22.2.0/lib:$PATH"
+export PATH="$PATH:/usr/local/Cellar/node/22.2.0/bin"
 
 # Pyenv PATH setup
 export PYENV_ROOT="$HOME/.pyenv"
@@ -96,3 +100,4 @@ export PATH="$HOME/.local/bin:$PATH"
 # Add path for Ruby/Gem
 export GEM_HOME="$HOME/.gem"
 export PATH="$HOME/.gem/bin:$PATH"
+
