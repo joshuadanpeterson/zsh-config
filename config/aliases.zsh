@@ -101,6 +101,7 @@ alias gac='gaa && gc -m' # beginning of git add and git commit
 alias gpom='gp -u origin main'
 alias gai='gaa & aicommits -t conventional'
 alias acc='aicommits -t conventional'
+alias cctypes='npx conventional-commit-types-cli' # Conventional Commits Glossary
 
 ## <-- Tools -->
 # Add pwd to clipboard
