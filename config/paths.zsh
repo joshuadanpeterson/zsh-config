@@ -101,3 +101,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export GEM_HOME="$HOME/.gem"
 export PATH="$HOME/.gem/bin:$PATH"
 
+# Add go path
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin

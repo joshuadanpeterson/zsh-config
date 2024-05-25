@@ -99,6 +99,7 @@ alias gb='git blame -n --show-stats --color-lines'
 alias glgc='git log -1 --pretty=%B | lolcat' # Get last git commit message
 alias gac='gaa && gc -m' # beginning of git add and git commit
 alias gpom='gp -u origin main'
+alias gai='gaa & aicommits -t conventional'
 
 ## <-- Tools -->
 # Add pwd to clipboard
