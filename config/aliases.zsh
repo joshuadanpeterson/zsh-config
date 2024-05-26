@@ -103,6 +103,9 @@ alias gai='gaa & aicommits -t conventional'
 alias acc='aicommits -t conventional'
 alias cctypes='npx conventional-commit-types-cli' # Conventional Commits Glossary
 
+# Package Installs
+alias gast='npm i -S @types/google-apps-script' # Adds Google Apps Script Autocomplete to local projects
+
 ## <-- Tools -->
 # Add pwd to clipboard
 alias pwd='pwd | tee >(pbcopy)'
