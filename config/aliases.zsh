@@ -131,3 +131,7 @@ alias lc='nvim leetcode.nvim'
 
 # Aliasing Python
 alias python='python3'
+
+# <-- Development Directories -->
+alias glossd='cd ~/Dropbox/programming/cli-apps/my-apps/gloss/'
+alias glossc='nvim ~/Dropbox/programming/cli-apps/my-apps/gloss/'
