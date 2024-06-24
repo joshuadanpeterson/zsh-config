@@ -92,3 +92,55 @@ fzf_man() {
 fzfhist() {
   eval $(history | fzf | awk '{$1=""; print $0}')
 }
+
+# Search git commit log with fzf
+fzf_glog () {
+    git log \
+        --color=always \
+        --format="%C(cyan)%h %C(blue)%ar%C(auto)%d %C(yellow)%s%+b %C(black)%ae" "$@" |
+        fzf -i -e +s \
+            --tiebreak=index \
+            --no-multi \
+            --ansi \
+            --preview="echo {} |
+                        grep -o '[a-f0-9]\{7\}' |
+                        head -1 |
+                        xargs -I % sh -c 'git show --color=always % | delta'" \
+            --header "enter: view, C-c: copy hash" \
+            --bind "enter:execute:_viewGitLogline | less -R" \
+            --bind "ctrl-c:execute:_gitLoglLineToHash | pbcopy"
+}
+
+# Helper function to extract the commit hash from the selected line
+_viewGitLogLine() {
+    # Extract the commit hash from the input line
+    local commit_hash=$(echo "$1" | grep -o '[a-f0-9]\{7,40\}')
+
+    # Use git show to display the commit details
+    if [ ! -z "$commit_hash" ]; then
+        git show --color=always "$commit_hash" | less -R
+    else
+        echo "No commit hash found."
+    fi
+}
+
+# Helper function to copy the commit hash from the selected line to the clipboard
+_gitLogLineToHash() {
+    # Extract the commit hash from the input line
+    local commit_hash=$(echo "$1" | grep -o '[a-f0-9]\{7,40\}')
+
+    # Copy the commit hash to the clipboard
+    # Uncomment the line that corresponds to your operating system
+
+    # macOS
+    echo "$commit_hash" | pbcopy
+
+    # Linux
+    # echo $commit_hash | xclip -selection clipboard
+
+    # Windows (Git Bash)
+    # echo $commit_hash | clip.exe
+
+    # For demonstration, just echo the hash
+    # echo "Commit hash: $commit_hash"
+}
