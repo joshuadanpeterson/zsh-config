@@ -118,6 +118,7 @@ _viewGitLogLine() {
 
     # Use git show to display the commit details
     if [ ! -z "$commit_hash" ]; then
+        echo "Commit hash: $commit_hash"
         git show --color=always "$commit_hash" | less -R
     else
         echo "No commit hash found."
