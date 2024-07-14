@@ -53,6 +53,9 @@ export MANPAGER='nvim +Man!'
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
+# Source jumper
+source <(jumper --shell zsh)
+
 # Set fzf colortheme
 # https://shorturl.at/msyU9
 export FZF_DEFAULT_OPTS="
