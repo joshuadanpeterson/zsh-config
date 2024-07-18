@@ -51,7 +51,7 @@ alias rnc='nvim "$HOME/.config/ranger/rc.conf"'
 alias rn='ranger'
 
 # Zoxide
-alias z='zoxide'
+alias zo='zoxide'
 
 ## <-- Tmux commands -->
 # Tmux
