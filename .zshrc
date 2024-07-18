@@ -80,5 +80,11 @@ eval "$(pyenv init -)"
 [ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh ] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh
 source /usr/local/opt/forgit/share/forgit/forgit.plugin.zsh
 
+# =============================================================================
+#
+# To initialize zoxide, add this to your configuration (usually ~/.zshrc):
+#
+eval "$(zoxide init zsh)"
+
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"

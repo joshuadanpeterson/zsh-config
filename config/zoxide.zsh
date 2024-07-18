@@ -112,8 +112,3 @@ if [[ -o zle ]]; then
     [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete z
 fi
 
-# =============================================================================
-#
-# To initialize zoxide, add this to your configuration (usually ~/.zshrc):
-#
-# eval "$(zoxide init zsh)"
