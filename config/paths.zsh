@@ -1,12 +1,15 @@
 # Ensure core utilities are available
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
+# Add the npm global bin directory
+export PATH=$PATH:/usr/local/bin
+
 # Add the requested paths
 # export PATH="/Users/joshpeterson/.nvm/versions/node/v22.2.0/bin:$PATH"
 # export PATH="/opt/local/bin:$PATH"
 # export PATH="/opt/local/sbin:$PATH"
 # export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:$PATH"
-# export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 # export PATH="/System/Cryptexes/App/usr/bin:$PATH"
 # export PATH="/usr/bin:$PATH"
 # export PATH="/bin:$PATH"
