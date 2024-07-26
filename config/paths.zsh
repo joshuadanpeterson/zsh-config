@@ -3,6 +3,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 # Add the npm global bin directory
 export PATH=$PATH:/usr/local/bin
+export PATH="$PATH:$(npm bin -g)"
+
 
 # Add the requested paths
 # export PATH="/Users/joshpeterson/.nvm/versions/node/v22.2.0/bin:$PATH"
