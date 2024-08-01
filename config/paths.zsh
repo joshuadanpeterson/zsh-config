@@ -32,6 +32,9 @@ export PATH="/usr/local/bin:$PATH" # Add the npm global bin directory
 # Remove duplicate and invalid PATH entries
 # export PATH=$(echo "$PATH" | tr ':' '\n' | grep -v 'Unknown command' | grep -v '^bin$' | awk -v RS=: -v ORS=: '!a[$1]++' | sed 's/:$//')
 
+# Add aws4 to path
+export PATH="/usr/local/lib/node_modules/aws4/bin:$PATH"
+
 # Google Cloud Environment Variable & SDK
 export CLOUDSDK_PYTHON=/Users/joshpeterson/.pyenv/shims/python
 export PATH="$PATH:$HOME/google-cloud-sdk/bin"
