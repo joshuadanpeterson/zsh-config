@@ -1,4 +1,5 @@
 # Functions
+#
 
 ## Measure Zsh startup time using Python
 ZSH_START_TIME=$(python -c 'import time; print(time.time())')
@@ -144,4 +145,15 @@ _gitLogLineToHash() {
 
     # For demonstration, just echo the hash
     # echo "Commit hash: $commit_hash"
+}
+
+# ================================================================================
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
