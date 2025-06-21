@@ -102,3 +102,6 @@ eval "$(atuin init zsh)"
 export PATH="/Users/joshpeterson/Dropbox/programming/obsidian/python:$PATH"
 # Warp Context Loader
 source ~/Dropbox/programming/scripting/warp-context-loader/scripts/warp_startup.sh
+
+# Add Docker Desktop CLI tools to PATH
+export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
