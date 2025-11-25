@@ -1,12 +1,11 @@
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-# Amazon Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # Q pre block. Keep at the top of this file.
 # Set and source your Zsh theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -92,10 +91,6 @@ source /usr/local/opt/forgit/share/forgit/forgit.plugin.zsh
 # To initialize zoxide, add this to your configuration (usually ~/.zshrc):
 #
 eval "$(zoxide init zsh)"
-
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
@@ -105,3 +100,16 @@ source ~/Dropbox/programming/scripting/warp-context-loader/scripts/warp_startup.
 
 # Add Docker Desktop CLI tools to PATH
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+
+# Task Master aliases added on 7/3/2025
+alias tm='task-master'
+alias taskmaster='task-master'
+# Fix malloc stack logging error for Python/aider
+unset MallocStackLogging
+unset MallocStackLoggingNoCompact
+
+# Set path for Luarocks and Busted
+export PATH=$HOME/.luarocks/bin:$PATH
+
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
