@@ -8,8 +8,6 @@ zmodload zsh/zprof
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
 # Load welcome-banner
 autoload -U add-zsh-hook
@@ -20,14 +18,12 @@ add-zsh-hook precmd show_welcome_banner_once
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting aliases colored-man-pages fig fzf macos colorize python you-should-use welcome-banner)
+plugins=(git zsh-syntax-highlighting aliases colored-man-pages fzf macos colorize python you-should-use welcome-banner)
 
 # Set default editor to Neovim
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 # Enable VIM mode
 bindkey -v

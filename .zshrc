@@ -76,7 +76,6 @@ export FZF_DEFAULT_OPTS="
 # Source iterm2 integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-[[ -f "$HOME/fig-export/zsh-config/dotfile.zsh" ]] && builtin source "$HOME/fig-export/zsh-config/dotfile.zsh"
 
 # Q post block. Keep at the bottom of this file.
 export PYENV_ROOT="$HOME/.pyenv"
