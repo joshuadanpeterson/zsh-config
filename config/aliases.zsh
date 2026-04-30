@@ -25,7 +25,7 @@ alias nvimd='cd "$HOME/.config/nvim"'
 alias ls='eza --color=always -l --git --git-repos  --icons=always  --no-permissions --no-user -a -a --header | lolcat'
 alias lz='fzf_ls_nvim'
 alias lf='fzf_nvim'
-alias lp='fd --hidden | fzf --color=16 | pbcopy'
+alias lp='fd --hidden | fzf | pbcopy'
 
 # Change Directory to Home Directory
 alias home='cd ~'
@@ -70,22 +70,24 @@ alias tmxdp='tmux display-message "Window: #I Pane: #{pane_index} Date: $(date)"
 
 ## <-- Alias -->
 # List aliases with fzf
-alias af='alias | fzf --color=16'
+alias af='alias | fzf'
 # List aliases and copy result to clipboard
-alias al="alias | fzf --color=16 | cut -d'=' -f1 | awk '{print $2}' | pbcopy | pbpaste"
+alias al="alias | fzf | cut -d'=' -f1 | awk '{print $2}' | pbcopy | pbpaste"
 
 # Count alias usage
 alias cu='count_alias_usage | fzf --reverse'
 
-# Use bat with GitHub theme
-alias bat='bat --theme=GitHub --color=always'
+# Use bat with a dark, high-contrast theme for transparent terminal backgrounds.
+export BAT_THEME="Visual Studio Dark+"
+alias bat='command bat --theme="$BAT_THEME" --color=always'
+alias cat='command bat --theme="$BAT_THEME" --style=plain --paging=never --color=always'
 
 ## <-- TLDR -->
 # Set fzf_tldr
 alias tf='fzf_tldr'
 
 # List tldr pages
-alias tl='tldr -l | fzf --color=16 | pbcopy'
+alias tl='tldr -l | fzf | pbcopy'
 
 # List man pages
 alias ml='fzf_man | pbcopy'

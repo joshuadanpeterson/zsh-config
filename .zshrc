@@ -11,6 +11,10 @@ fi
 ZSH_THEME="powerlevel10k/powerlevel10k"
 export COLORTERM=nord
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Avoid slow prompt startup from Powerlevel10k Google Cloud segments. These
+# invoke `gcloud config ...` and `gcloud projects describe ...` while drawing.
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS:#gcloud})
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS:#google_app_cred})
 
 # Core settings
 source ~/.config/zsh-config/config/core.zsh
@@ -65,8 +69,9 @@ source <(jumper --shell zsh)
 # Set fzf colortheme
 # https://shorturl.at/msyU9
 export FZF_DEFAULT_OPTS="
-  --color=hl:#5f87af,hl+:#5fd7ff,info:#afaf87,marker:#87ff00 \
-  --color=prompt:#d7005f,spinner:#af5fff,pointer:#af5fff,header:#87afaf \
+  --color=bg:#1e1e1e,fg:#d4d4d4,gutter:#1e1e1e,bg+:#264f78,fg+:#ffffff \
+  --color=hl:#569cd6,hl+:#9cdcfe,info:#c586c0,marker:#b5cea8 \
+  --color=prompt:#dcdcaa,spinner:#c586c0,pointer:#ffcc66,header:#9cdcfe,border:#6a9955 \
   --border=rounded --border-label='' --preview-window='border-rounded' --prompt='> ' \
   --marker='>' --pointer='◆' --separator='─' --scrollbar='│'
 "
@@ -75,21 +80,12 @@ export FZF_DEFAULT_OPTS="
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
-# Q post block. Keep at the bottom of this file.
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
 # Add forgit
 [ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh ] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh
 source /usr/local/opt/forgit/share/forgit/forgit.plugin.zsh
 
 # =============================================================================
 #
-# To initialize zoxide, add this to your configuration (usually ~/.zshrc):
-#
-eval "$(zoxide init zsh)"
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"

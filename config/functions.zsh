@@ -21,8 +21,8 @@ zsh_startup_time
 # Open files in Neovim using `fzf` with preview window and toggle preview
 function fzf_nvim() {
     local file
-    file=$(fzf --color=16 \
-        --preview 'bat --theme=GitHub --style=numbers --color=always --line-range :500 {}' \
+    file=$(fzf \
+        --preview 'bat --theme="${BAT_THEME:-Visual Studio Dark+}" --style=numbers --color=always --line-range :500 {}' \
         --preview-window=right:50% --bind '?:toggle-preview') && nvim "$file"
 }
 
@@ -30,8 +30,8 @@ function fzf_nvim() {
 function fzf_ls_nvim() {
     local file
     file=$(lsd -a -R | grep -v '.git' \
-        | fzf --color=16 \
-              --preview 'bat --theme=GitHub --color=always --line-range :500 {} || echo {}' \
+        | fzf \
+              --preview 'bat --theme="${BAT_THEME:-Visual Studio Dark+}" --color=always --line-range :500 {} || echo {}' \
               --preview-window=down:3:wrap --bind='?:toggle-preview' \
         | awk '{print $NF}' ) && [ -n "$file" ] && nvim "$file"
 }
@@ -69,7 +69,7 @@ function count_alias_usage() {
 # Get the selected command from fzf
 fzf_tldr() {
     # Get the selected command from fzf
-    local selected_command=$(tldr -a --color=always | fzf --ansi --color=16 --preview 'tldr {} --color=always | bat --style=plain,header --color=always')
+    local selected_command=$(tldr -a --color=always | fzf --ansi --preview 'tldr {} --color=always | bat --theme="${BAT_THEME:-Visual Studio Dark+}" --style=plain,header --color=always')
 
     # Check if a command was selected
     if [ -n "$selected_command" ]; then
@@ -84,7 +84,7 @@ fzf_tldr() {
 
 # Search for man pages and display in fzf preview window
 fzf_man() {
-    local selected_command=$(man -k . | fzf --color=16 | awk -F '(' '{print $1}' | tr -d '[:space:]')
+    local selected_command=$(man -k . | fzf | awk -F '(' '{print $1}' | tr -d '[:space:]')
     echo "man $selected_command"
     echo $selected_command | pbcopy
 }

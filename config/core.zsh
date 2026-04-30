@@ -38,7 +38,8 @@ zvm_after_init_commands+=("bindkey -a 'k' up-line-or-search" "bindkey -a 'j' dow
 
 # Install NVM
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# Loading nvm eagerly adds several seconds to shell startup. config/lazyload.zsh
+# defines an nvm() shim that sources nvm.sh on first use instead.
 
 # Enable/Disable stack logging
 export MallocStackLogging=0
