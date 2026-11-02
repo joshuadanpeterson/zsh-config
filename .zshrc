@@ -10,41 +10,53 @@ fi
 # Set and source your Zsh theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 export COLORTERM=nord
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -r /Users/Shared/p10k/.p10k.zsh ]] || source /Users/Shared/p10k/.p10k.zsh
 # Avoid slow prompt startup from Powerlevel10k Google Cloud segments. These
 # invoke `gcloud config ...` and `gcloud projects describe ...` while drawing.
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS:#gcloud})
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS:#google_app_cred})
 
 # Core settings
-source ~/.config/zsh-config/config/core.zsh
+typeset -g ZSH_CONFIG_DIR=/Users/Shared/zsh-config
+# Share installed code, but keep generated state inside each account.
+export ZSH=/Users/Shared/oh-my-zsh
+export ZSH_CUSTOM="$ZSH/custom"
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+export ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump-${HOST}-${ZSH_VERSION}"
+export ZSH_DISABLE_COMPFIX="true"
+# Shared code is administrator-managed; do not update it during shell startup.
+zstyle ':omz:update' mode disabled
+# Homebrew completions are owned by Josh, not by recorder or root.
+if [[ "$USER" == "recorder" ]]; then
+    fpath=(${fpath:#/usr/local/share/zsh/site-functions})
+fi
+[[ ! -r "$ZSH_CONFIG_DIR/config/core.zsh" ]] || source "$ZSH_CONFIG_DIR/config/core.zsh"
 
 # Oh My Zsh
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
+[[ ! -r "$ZSH/oh-my-zsh.sh" ]] || source "$ZSH/oh-my-zsh.sh"
 
 # Path settings
-source ~/.config/zsh-config/config/paths.zsh
+[[ ! -r "$ZSH_CONFIG_DIR/config/paths.zsh" ]] || source "$ZSH_CONFIG_DIR/config/paths.zsh"
 
 # Aliases
-source ~/.config/zsh-config/config/aliases.zsh
+[[ ! -r "$ZSH_CONFIG_DIR/config/aliases.zsh" ]] || source "$ZSH_CONFIG_DIR/config/aliases.zsh"
 
 # Zoxide configurations
-source ~/.config/zsh-config/config/zoxide.zsh
+[[ ! -r "$ZSH_CONFIG_DIR/config/zoxide.zsh" ]] || source "$ZSH_CONFIG_DIR/config/zoxide.zsh"
 
-# Source private environment variables
-if [ -f ~/.zshenv_private ]; then
-    source ~/.zshenv_private
+# Load account-local private settings only when the file is readable.
+if [[ -r "$HOME/.zshenv_private" ]]; then
+    source "$HOME/.zshenv_private"
 fi
 
 # Asynchronous or deferred loading
-source ~/.config/zsh-config/config/async.zsh
+[[ ! -r "$ZSH_CONFIG_DIR/config/async.zsh" ]] || source "$ZSH_CONFIG_DIR/config/async.zsh"
 
 # Source lazy load configurations
-source ~/.config/zsh-config/config/lazyload.zsh
+[[ ! -r "$ZSH_CONFIG_DIR/config/lazyload.zsh" ]] || source "$ZSH_CONFIG_DIR/config/lazyload.zsh"
 
 # Source functions configurations
-source ~/.config/zsh-config/config/functions.zsh
+[[ ! -r "$ZSH_CONFIG_DIR/config/functions.zsh" ]] || source "$ZSH_CONFIG_DIR/config/functions.zsh"
 
 # nvm
 zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier
@@ -59,12 +71,16 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 export MANPAGER='nvim +Man!'
 
 # Source fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -r "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 # Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
+if command -v fzf >/dev/null 2>&1; then
+    eval "$(fzf --zsh)"
+fi
 
 # Source jumper
-source <(jumper --shell zsh)
+if command -v jumper >/dev/null 2>&1; then
+    source <(jumper --shell zsh)
+fi
 
 # Set fzf colortheme
 # https://shorturl.at/msyU9
@@ -81,17 +97,26 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 
 # Add forgit
-[ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh ] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh
-source /usr/local/opt/forgit/share/forgit/forgit.plugin.zsh
+if [[ -r "${HOMEBREW_PREFIX:-/usr/local}/share/forgit/forgit.plugin.zsh" ]]; then
+    source "${HOMEBREW_PREFIX:-/usr/local}/share/forgit/forgit.plugin.zsh"
+elif [[ -r /usr/local/opt/forgit/share/forgit/forgit.plugin.zsh ]]; then
+    source /usr/local/opt/forgit/share/forgit/forgit.plugin.zsh
+fi
 
 # =============================================================================
 #
-. "$HOME/.atuin/bin/env"
+[[ ! -r "$HOME/.atuin/bin/env" ]] || source "$HOME/.atuin/bin/env"
 
-eval "$(atuin init zsh)"
-export PATH="/Users/joshpeterson/Dropbox/programming/obsidian/python:$PATH"
-# Warp Context Loader
-source ~/Dropbox/programming/scripting/warp-context-loader/scripts/warp_startup.sh
+if command -v atuin >/dev/null 2>&1; then
+    eval "$(atuin init zsh)"
+fi
+
+# Load optional Dropbox paths and startup scripts only when Dropbox exists.
+if [[ -d "$HOME/Dropbox" ]]; then
+    [[ ! -d "$HOME/Dropbox/programming/obsidian/python" ]] || export PATH="$HOME/Dropbox/programming/obsidian/python:$PATH"
+    # Warp Context Loader
+    [[ ! -r "$HOME/Dropbox/programming/scripting/warp-context-loader/scripts/warp_startup.sh" ]] || source "$HOME/Dropbox/programming/scripting/warp-context-loader/scripts/warp_startup.sh"
+fi
 
 # Add Docker Desktop CLI tools to PATH
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
@@ -105,3 +130,18 @@ unset MallocStackLoggingNoCompact
 
 # Set path for Luarocks and Busted
 export PATH=$HOME/.luarocks/bin:$PATH
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C -d "$ZSH_COMPDUMP"
+# <<< grok installer <<<
+
+# Hermes CLI completion bindings (must be after final compinit)
+if typeset -f _hermes >/dev/null 2>&1; then
+  compdef _hermes hermes hermes-tui
+fi
+
+
+# Added by Antigravity CLI installer
+export PATH="$HOME/.local/bin:$PATH"
