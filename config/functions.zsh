@@ -42,10 +42,12 @@ function zi() {
 }
 
 # colorls
-if [ -f "$(dirname $(gem which colorls))/tab_complete.sh" ]; then
-  source "$(dirname $(gem which colorls))/tab_complete.sh"
-else
-  echo "colorls tab completion not found"
+if command -v gem >/dev/null 2>&1; then
+  colorls_path=$(gem which colorls 2>/dev/null)
+  if [[ -n "$colorls_path" && -r "${colorls_path:h}/tab_complete.sh" ]]; then
+    source "${colorls_path:h}/tab_complete.sh"
+  fi
+  unset colorls_path
 fi
 
 # Keep prompt at bottom of iTerm2 terminal after clearing
@@ -157,3 +159,32 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# ================================================================================
+# Hermes CLI completions
+_hermes() {
+  _arguments -s -S \
+    '(-h --help)'{-h,--help}'[show help]' \
+    '(-q --query)'{-q,--query}'[single query (non-interactive mode)]:query:' \
+    '--image[attach local image to a single query]:image file:_files' \
+    '(-m --model)'{-m,--model}'[model to use]:model:' \
+    '(-t --toolsets)'{-t,--toolsets}'[comma-separated toolsets to enable]:toolsets:' \
+    '(-s --skills)'{-s,--skills}'[preload one or more skills]:skills:' \
+    '--provider[inference provider]:provider:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]' \
+    '(-Q --quiet)'{-Q,--quiet}'[quiet mode]' \
+    '--resume[resume a previous session by ID]:session id:' \
+    '--continue[resume a session by name or latest]:session name:' \
+    '(-w --worktree)'{-w,--worktree}'[run in an isolated git worktree]' \
+    '--accept-hooks[auto-approve unseen shell hooks]' \
+    '--checkpoints[enable filesystem checkpoints]' \
+    '--max-turns[maximum tool-calling iterations]:turns:' \
+    '--yolo[bypass dangerous command approval prompts]' \
+    '--pass-session-id[include session ID in system prompt]' \
+    '--ignore-user-config[ignore ~/.hermes/config.yaml]' \
+    '--ignore-rules[skip AGENTS.md/SOUL.md/rules/memory injection]' \
+    '--source[session source tag]:source:(cli tool)' \
+    '--tui[launch modern TUI]' \
+    '--dev[with --tui, run TypeScript sources via tsx]'
+}
+

@@ -2,19 +2,19 @@
 
 ## <-- Dotfiles and configs -->
 # .config/zsh-config
-alias dot='cd "$HOME/.config/zsh-config"'
+alias dot='cd "${ZSH_CONFIG_DIR:-/Users/Shared/zsh-config}"'
 
 # zshrc
-alias zshrc='nvim "$HOME/.config/zsh-config/.zshrc"'
-alias sz='source "$HOME/.config/zsh-config/.zshrc"'
-alias aliases='nvim "$HOME/.config/zsh-config/config/aliases.zsh"'
+alias zshrc='nvim "${ZSH_CONFIG_DIR:-/Users/Shared/zsh-config}/.zshrc"'
+alias sz='source "${ZSH_CONFIG_DIR:-/Users/Shared/zsh-config}/.zshrc"'
+alias aliases='nvim "${ZSH_CONFIG_DIR:-/Users/Shared/zsh-config}/config/aliases.zsh"'
 
 # Lazy Load plugins
-alias lzyld='nvim "$HOME/.config/zsh-config/lazyload.zsh"'
-alias slzyld='source "$HOME/.config/zsh-config/lazyload.zsh"'
+alias lzyld='nvim "${ZSH_CONFIG_DIR:-/Users/Shared/zsh-config}/config/lazyload.zsh"'
+alias slzyld='source "${ZSH_CONFIG_DIR:-/Users/Shared/zsh-config}/config/lazyload.zsh"'
 
 # Powerlevel10k
-alias sp='source $HOME/.config/p10k/.p10k.zsh'
+alias sp='source /Users/Shared/p10k/.p10k.zsh'
 
 # nvim config
 alias nvimc='nvim "$HOME/.config/nvim/init.lua"'
@@ -138,3 +138,6 @@ alias python='python3'
 # <-- Development Directories -->
 alias glossd='cd ~/Dropbox/programming/cli-apps/my-apps/gloss/'
 alias glossc='nvim ~/Dropbox/programming/cli-apps/my-apps/gloss/'
+
+## <-- Access Edits app from Desktop -->
+alias edits='scrcpy --turn-screen-off --stay-awake --push-target=/sdcard/Movies/ --window-title="Edits"'

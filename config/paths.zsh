@@ -36,7 +36,9 @@ export PATH="/usr/local/bin:$PATH" # Add the npm global bin directory
 export PATH="/usr/local/lib/node_modules/aws4/bin:$PATH"
 
 # Google Cloud Environment Variable & SDK
-export CLOUDSDK_PYTHON=/Users/joshpeterson/.pyenv/shims/python
+if [[ -x "$HOME/.pyenv/shims/python" ]]; then
+   export CLOUDSDK_PYTHON="$HOME/.pyenv/shims/python"
+fi
 export PATH="$PATH:$HOME/google-cloud-sdk/bin"
 
 # MongoDB
@@ -44,16 +46,16 @@ export PATH="/usr/local/opt/mongodb-community-shell@4.4/bin:$PATH"
 export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/joshpeterson/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/joshpeterson/google-cloud-sdk/path.zsh.inc'; fi
+if [[ -r "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/joshpeterson/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/joshpeterson/google-cloud-sdk/completion.zsh.inc'; fi
+if [[ -r "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 # fzf
 export FZF_BASE=/path/to/fzf/install/dir
 
 # hub
-if (( ! ${fpath[(I)/usr/local/share/zsh/site-functions]} )); then
+if [[ "$USER" != "recorder" ]] && (( ! ${fpath[(I)/usr/local/share/zsh/site-functions]} )); then
    FPATH=/usr/local/share/zsh/site-functions:$FPATH
 fi
 
@@ -86,7 +88,9 @@ if [ -f ~/.zprofile ]; then
 fi
 
 # NPM & Node Modules Path
-export PATH="$PATH:/System/Volumes/Data/Users/joshpeterson/.nvm/versions/node/v18.12.1/bin"
+if [[ -d "$HOME/.nvm/versions/node/v18.12.1/bin" ]]; then
+   export PATH="$PATH:$HOME/.nvm/versions/node/v18.12.1/bin"
+fi
 export PATH="$PATH:/usr/local/Cellar/node/21.6.2_1/bin"
 export PATH="$PATH:/usr/local/Cellar/node/22.1.0/bin"
 export PATH="/usr/local/Cellar/node/22.2.0/lib:$PATH"
@@ -95,8 +99,10 @@ export PATH="$PATH:/usr/local/Cellar/node/22.2.0/bin"
 # Pyenv PATH setup
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+if command -v pyenv >/dev/null 2>&1; then
+   eval "$(pyenv init --path)"
+   eval "$(pyenv init -)"
+fi
 
 # Add path for sqlfluff
 export PATH="$HOME/.local/bin:$PATH"

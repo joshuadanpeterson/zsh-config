@@ -9,16 +9,19 @@ zmodload zsh/zprof
 # fi
 
 
-# Load welcome-banner
+# Load welcome-banner only when this account has its optional font.
 autoload -U add-zsh-hook
-add-zsh-hook precmd show_welcome_banner_once
+if [[ -r "$ZSH/oh-my-zsh.sh" && -r "$HOME/.local/share/fonts/figlet-fonts/ANSI Shadow.flf" ]]; then
+  add-zsh-hook precmd show_welcome_banner_once
+fi
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting aliases colored-man-pages fzf macos colorize python you-should-use welcome-banner)
+plugins=(git zsh-syntax-highlighting aliases colored-man-pages fzf macos colorize python you-should-use)
+[[ ! -r "$HOME/.local/share/fonts/figlet-fonts/ANSI Shadow.flf" ]] || plugins+=(welcome-banner)
 
 # Set default editor to Neovim
 export VISUAL=nvim
